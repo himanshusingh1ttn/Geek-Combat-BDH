@@ -1,0 +1,41 @@
+<% include('../layouts/header.ejs')%>
+
+    <h3>Find Videos</h3><br>
+    <form action="" method="POST" >
+        <input type="text" name="VideoName" placeholder="tittle" required>
+        <input type="submit">
+
+        <table width="50%">
+
+            <tr>
+                <th>Tittle</th>
+                <th>Description</th>
+                <th>Video</th>
+            </tr>
+            <% if(videoArr.length>0){
+                for(let i = 0; i<videoArr.length; i++){ %>
+                    <tr>
+
+                        <td>
+                            <%= videoArr[i].tittle %>
+                        </td>
+                        <td>
+                            <%= videoArr[i].desc%>
+                        </td>
+                        <td><video width="320" height="240" controls>
+                                <source src="/userVideo/<%= videoArr[i].video %>" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </td>
+
+                    </tr>
+                    <% } }else{ %>
+                        <tr>
+                            <td colspan="5"> Users Not found </td>
+                        </tr>
+                        <% } %>
+
+        </table>
+    </form>
+
+    <% include('../layouts/footer.ejs')%>

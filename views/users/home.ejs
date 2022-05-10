@@ -1,0 +1,24 @@
+<%- include('../layouts/header.ejs')%>
+
+<h3>Welcome Trainee, <%= user.name %></h3><br>
+<a href = "/check-course">Check Course</a><br><br>
+<table width="50%">
+    <tr>
+        <td><img src="userImages/<%= user.image%>" height="200px" width="500px" alt="<%= user.image%>"></td>
+        
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><%= user.email%></td>
+    </tr>
+    <tr>
+        <td>Mobile</td>
+        <td><%= user.mobile%></td>
+    </tr>
+    
+</table>
+
+<a href="/edit?id=<%= user._id%>">Edit</a><br>
+<a href="/logout">Logout</a>
+
+<% include('../layouts/footer.ejs')%>
