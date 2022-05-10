@@ -338,10 +338,14 @@ const loadscheduledInterview = async (req, res) => {
     try {
         const users=[]
         const user=await User.find({_id:req.session.user_id})
-        for(let i=0;i<=user.scheduledInterview.length;i++){
-            const interviewe=await User.find({_id:user.scheduledInterview[i].toString()})
-            const sample={name:interviewe.name,email:interviewe.email,mobile:interviewe.mno,status:0}
-            users.push(sample);
+        for(let i=0;i<=user.length-1;i++){
+            const userId=user[i].scheduledInterview;
+            for(let j=0;j<=userId.length-1;j++){
+                     const interviewe=await User.find({_id:userId[j]})
+                     console.log(interviewe)
+                    const sample={name:interviewe[0].name,email:interviewe[0].email,mobile:interviewe[0].mno,status:0}
+                    users.push(sample);
+                }
         }
         res.render('scheduledInterview',{users:users});
     } catch (error) {
