@@ -2,12 +2,15 @@
 <% include('../layouts/header.ejs')%>
 <h1>Schedule Interview</h1>
 
-<form action = ""  method = "POST" enctype="multipart/form-data">
+<form action = ""  method = "POST" >
     <label for="">Year of the Trainee</label>
     <input type = "number" name = "yoj" placeholder = "Year of joining of the trainees" required>
     <br>
     <br>
-    
+    <label for="">Date of Interview</label>
+    <input type = "text" name = "mydate" placeholder = "Date of interview 22/11/2020" required>
+    <br>
+    <br>
     <input type = "submit" name = "submit" value = "Schedule">
 </form>
 

@@ -48,9 +48,10 @@ const userSchema = new mongoose.Schema({
         desc:{type:String},
         video:{type:String,required:true}
     }],
-    scheduledInterview:[
-        String
-    ]
+    scheduledInterview:[{
+        interviewe_id:{type:String,required:true},
+        interview_date:{type:String,required:true}
+    }]
 });
 
 

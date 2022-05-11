@@ -285,6 +285,8 @@ const scheduleInterview = async (req, res) => {
     try {
         const TraineeData=await User.find({is_Mentor:0});
         const MentorData=await User.find({is_Mentor:1});
+        const dateF=req.body.mydate
+        console.log(dateF)
         var i=0
         var j=0
         const perTrainee=Math.floor(TraineeData.length/MentorData.length)+1
@@ -292,8 +294,10 @@ const scheduleInterview = async (req, res) => {
             var k=0;
             while(k!=perTrainee){
                 console.log(k,i,j);
-                const userdData = await User.findByIdAndUpdate({ _id: MentorData[i]._id}, { $push: { scheduledInterview:TraineeData[j]._id.toString() } })
-                const dData = await User.findByIdAndUpdate({ _id: TraineeData[j]._id}, { $push: { scheduledInterview:MentorData[i]._id.toString() } })
+                const datapush={interviewe_id:TraineeData[j]._id.toString(),interview_date:req.body.mydate}
+                const userdData = await User.findByIdAndUpdate({ _id: MentorData[i]._id}, { $push: { scheduledInterview:datapush } })
+                const mdata={interviewe_id:MentorData[i]._id.toString(),interview_date:req.body.mydate}
+                const dData = await User.findByIdAndUpdate({ _id: TraineeData[j]._id}, { $push: { scheduledInterview:mdata } })
 
                 j+=1;
                 if(j===TraineeData.length){
@@ -341,9 +345,9 @@ const loadscheduledInterview = async (req, res) => {
         for(let i=0;i<=user.length-1;i++){
             const userId=user[i].scheduledInterview;
             for(let j=0;j<=userId.length-1;j++){
-                     const interviewe=await User.find({_id:userId[j]})
+                     const interviewe=await User.find({_id:userId[j].interviewe_id})
                      console.log(interviewe)
-                    const sample={name:interviewe[0].name,email:interviewe[0].email,mobile:interviewe[0].mno,status:0}
+                    const sample={name:interviewe[0].name,email:interviewe[0].email,mobile:interviewe[0].mobile,status:0,date:user[i].scheduledInterview[j].interview_date}
                     users.push(sample);
                 }
         }
