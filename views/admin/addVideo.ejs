@@ -1,0 +1,18 @@
+<% include('../layouts/header.ejs')%>
+<%
+    if(typeof message !== 'undefined'){
+        %>
+        <p style="color:red;"><%= message %></p>
+        <%
+    }
+%>
+<h3>Add Video</h3><br>
+<form action="" method="POST" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Tittle of the video" required><br><br>
+    <input type="text" name="description" placeholder="Description" ><br><br>
+    <input type = "file" name = "video"  required><br><br>
+    <input type="submit">
+</form>
+
+
+<% include('../layouts/footer.ejs')%>

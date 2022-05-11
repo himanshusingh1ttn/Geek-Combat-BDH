@@ -1,0 +1,51 @@
+<% include('../layouts/header.ejs')%>
+
+<h1>Scheduled Interviews</h1>
+<a href="/admin">Home</a>
+<br><br>
+</noscript>
+
+<!-- <p><%- users     %></p> -->
+<table width="50%">
+
+    <tr>
+        <th>Trainee Name</th>
+        <th>Trainee Email</th>
+        <th>Traine Contact Number</th>
+        <th>Status</th>
+    </tr>
+    <%
+     if(users.length>0){
+         for(let i = 0; i<users.length; i++){
+         %>
+            <tr>
+
+                <td><%= users[i].name %></td>
+                <td><%= users[i].email %></td>
+                <td><%= users[i].mobile %></td>
+                <td><%= users[i].status %></td>
+            </tr>
+
+
+        <%
+
+         }
+
+
+     }else{
+         %>
+         <tr>
+             <td colspan="5"> Users Not found </td>
+         </tr>
+         <%
+     }
+
+
+
+    %>
+
+</table>
+
+<a href = "/admin/home">Go To Home </a>
+
+<% include('../layouts/footer.ejs')%>

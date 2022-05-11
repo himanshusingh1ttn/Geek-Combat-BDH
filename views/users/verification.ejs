@@ -1,0 +1,20 @@
+<%- include('../layouts/header.ejs')%>
+
+<h1>Sent Verification Link Again</h1>
+<%
+    if(typeof message !== 'undefined'){
+        %>
+        <h4 style="color:green;"><%= message %></h4>
+        <%
+    }
+
+%>
+<form action="" method ="post">
+<input type = "email" name = "email"  required placeholder="Enter Email">
+
+<br><br>
+<input type = "submit" value="Send Verification Link">
+</form>
+
+
+<% include('../layouts/footer.ejs')%>

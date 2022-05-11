@@ -1,0 +1,51 @@
+<% include('../layouts/header.ejs')%>
+
+<h3>Find Trainee</h3><br>
+<form action="" method="POST">
+    <input type="text" name="trainee" placeholder="email,name,year" required>
+    <input type="submit">
+
+    <table width="50%">
+
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Image</th>
+    </tr>
+    <%
+     if(users.length>0){
+         for(let i = 0; i<users.length; i++){
+         %>
+            <tr>
+
+                <td><%= users[i].name %></td>
+                <td><%= users[i].email %></td>
+                <td><%= users[i].mobile %></td>
+                <td><img src="/userImages/<%= users[i].image %>" height="200px" width="200px" alt="<%= users[i].image %>"></td>
+                
+
+            </tr>
+
+
+        <%
+
+         }
+
+
+     }else{
+         %>
+         <tr>
+             <td colspan="5"> Users Not found </td>
+         </tr>
+         <%
+     }
+
+
+
+    %>
+
+</table>
+</form>
+
+<% include('../layouts/footer.ejs')%>
