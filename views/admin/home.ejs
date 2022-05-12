@@ -1,17 +1,16 @@
+
+<%- include('../layouts/header.ejs')%>
+
 <!-- <h1>Welcome Admin</h1>
 
 <a href="/admin/logout">Logout</a> -->
-
+<!-- 
 
 <%- include('../layouts/header.ejs')%>
 
 <h1>Welcome, <%= admin.name %></h1>
 <a href = "/admin/dashboard">Dashboard</a><br><br>
-<a href = "/admin/interview">Schedule Interview</a><br><br>
-<a href = "/findTrainee">Find Trainee</a><br><br>
-<a href = "/admin/add-video">Add Video</a><br><br>
-<a href = "/admin/scheduledInterview">Scheduled Interview</a><br><br>
-<a href = "/admin/allVideos">Search Video</a><br><br>
+
 
 
 
@@ -31,11 +30,271 @@
     
 </table>
 
+7895050789
+
 <a href="/edit?id=<%= admin._id%>">Edit</a><br>
 
 <a href="/logout">Logout</a>
 
-<% include("../layouts/footer.ejs") %>
+<% include("../layouts/footer.ejs") %> -->
 
 
+<div id="wrapper">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <!-- <img src="/assests/images/logo.jpg" alt=""> -->
+            </div>
+            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        </a>
+
+        <hr class="sidebar-divider my-0">
+
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+        </li>
+
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading">
+            User
+        </div>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/new-user">
+                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                <span>Add New User</span>
+            </a>
+            <a class="nav-link" href="/admin/dashboard">
+                <i class="fa fa-user-times"></i>
+                <span>Delete User</span>
+            </a>
+        </li>
+
+        <div class="sidebar-heading">
+            Interviews
+        </div>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/scheduledInterview">
+                <i class="fas fa-fw fa-clipboard-list"></i>
+                <span>Scheduled</span>
+            </a>
+       
+            <a class="nav-link" href="/admin/interview">
+                <i class="fas fa-fw fa-clipboard-list"></i>
+                <span>Schedule</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/findTrainee">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Find Trainee</span></a>
+        </li>
+        
+
+        <hr class="sidebar-divider">
+
+        <div class="sidebar-heading">
+            Addons
+        </div>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/add-video">
+                <i class="fas fa-fw fa-video"></i>
+                <span>Add Video</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  href = "/admin/allVideos">
+                <i class="fas fa-fw fa-video"></i>
+                <span>All Videos</span></a>
+        </li>
+
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!--     
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div> -->
+
+    </ul>
+
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <div id="content">
+
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <h1>Welcome, <%= admin.name %></h1>
+
+                <ul class="navbar-nav ml-auto">
+
+                    <div class="topbar-divider d-none d-sm-block"></div>
+
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                <%= admin.name %>
+                            </span>
+                            <img src="userImages/<%= admin.image%>" alt="user-image"
+                                class="img-profile rounded-circle">
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Settings
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <div class="container-fluid">
+
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="font-weight-bold text-primary text-uppercase mb-1 h5">
+                                            <a href="#">John Doe</a>
+                                        </div>
+
+                                        <div class="mb-0 font-weight-bold text-gray-800 text-xs">Average Score: 90%
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <img src="userImages/<%= admin.image%>" alt="user-image"
+                                            class="img-profile rounded-circle"
+                                            style="width: 2.5rem; height: 2.5rem">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="h5 font-weight-bold text-success text-uppercase mb-1">
+                                            <a href="#">John Doe</a>
+                                        </div>
+                                        <div class="mb-0 font-weight-bold text-gray-800 text-xs ">Average Score: 90%
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <img src="userImages/<%= admin.image%>" alt="user-image"
+                                            class="img-profile rounded-circle"
+                                            style="width: 2.5rem; height: 2.5rem">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="h5 font-weight-bold text-success text-uppercase mb-1">
+                                            <a href="#">John Doe</a>
+                                        </div>
+                                        <div class="text-xs mb-0 font-weight-bold text-gray-800">Average Score: 90%
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <img src="userImages/<%= admin.image%>" alt="user-image"
+                                            class="img-profile rounded-circle"
+                                            style="width: 2.5rem; height: 2.5rem">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8 col-lg-7">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Uploaded Videos</h6>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <% 
+                                    var videoArr = []; 
+                                    <!-- console.log(videoArr.length); -->
+                                    if(videoArr.length===0){ 
+                                        %>
+                                            <div class="mb-3">No Uploaded Videos</div>
+                                            <a href="/admin/add-video"><span class="me-1">Upload Video</span><i class="fa fa-plus"></i></a>
+                                            
+                                        <% } 
+                                    else{ 
+                                        %><div>Uploaded video: <% videoArr.length %></div><% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <a href="/edit?id=<%= admin._id%>">Edit</a><br> -->
+
+<%- include('../layouts/footer.ejs')%>
