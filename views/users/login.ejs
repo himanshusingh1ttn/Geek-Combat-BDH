@@ -1,15 +1,6 @@
 <%- include('../layouts/header.ejs')%>
 
-<h1>Login</h1>
-<%
-    if(typeof message !== 'undefined'){
-        %>
-        <h4 style="color:green;"><%= message %></h4>
-        <%
-    }
-
-%>
-<form action="/login" method ="post" class="d-flex">
+<!-- <form action="/login" method ="post" class="d-flex">
 <input type = "email" name = "email"  required placeholder="Enter Email">
 <br><br>
 <input type = "password" name = "password" required placeholder="Enter Password">
@@ -18,7 +9,72 @@
 </form>
 <a href="/forget">Forget Password</a>
 <a style="margin-left:20px" href="/verification">Verification</a>
-<a style="margin-left:20px" href="/admin/login">Admin Login</a>
+<a style="margin-left:20px" href="/admin/login">Admin Login</a> --> 
+
+
+
+<div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    <form class="user" action="/login" method="post">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Enter Email Address..." required name="email">
+                                        </div>
+                                        <div class="form-group position-relative">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Password" required name="password">
+                                            <i class="fas fa-fw fa-eye position-absolute" id="togglePassword" style="right: 1rem; top: 1rem; cursor:pointer"></i>
+                                        </div>
+                                        <div class="form-group">
+                                            <a class="small" href="/forget">Forgot Password?</a>
+                                        </div>
+                                        <input type = "submit" value="Login" class="btn btn-primary btn-user btn-blockr" style="width: 100%;">
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="/admin/login">Admin Login</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="/verification">Verify</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+</div>
+
+<script>
+    
+//toggle password
+  const togglePassword = document.getElementById('togglePassword');
+  const password = document.querySelector('#exampleInputPassword');
+ 
+  togglePassword.addEventListener('click', function (e) {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.classList.toggle('fa-eye-slash');
+});
+
+</script>
 
 
 <% include('../layouts/footer.ejs')%>

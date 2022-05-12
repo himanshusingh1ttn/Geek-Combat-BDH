@@ -29,7 +29,7 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/scheduledInterview">
                     <i class="fas fa-fw fa-clipboard-list"></i>
                     <span>Scheduled</span>
                 </a>
@@ -45,10 +45,8 @@
                     <span>Find Trainee</span></a>
             </li>
 
-            <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
             <div class="sidebar-heading">
                 Addons
             </div>
@@ -59,7 +57,6 @@
                     <span>Add Video</span></a>
             </li>
 
-            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!--     
@@ -69,7 +66,6 @@
 
         </ul>
 
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <div id="content">
@@ -95,7 +91,7 @@
                                 <img src="userImages/<%= user.image%>" alt="user-image"
                                     class="img-profile rounded-circle">
                             </a>
-                            <!-- Dropdown - User Information -->
+
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
@@ -107,7 +103,7 @@
                                     Settings
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -117,7 +113,6 @@
                     </ul>
 
                 </nav>
-                <!-- End of Topbar -->
 
                 <div class="container-fluid">
 
@@ -219,10 +214,8 @@
                     </div>
 
                 </div>
-                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Main Content -->
 
         </div>
 
@@ -248,7 +241,6 @@
         </div>
     </div>
 
-<!-- 
-    <a href="/edit?id=<%= user._id%>">Edit</a><br> -->
+<!-- <a href="/edit?id=<%= user._id%>">Edit</a><br> -->
 
     <%- include('../layouts/footer.ejs')%>
