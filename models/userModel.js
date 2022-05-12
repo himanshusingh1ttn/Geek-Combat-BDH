@@ -1,4 +1,4 @@
-const { ObjectId } = require("mongodb");
+const { ObjectId, Decimal128, Double } = require("mongodb");
 const mongoose = require ("mongoose");
 const { stringify } = require("nodemon/lib/utils");
 
@@ -57,6 +57,10 @@ const userSchema = new mongoose.Schema({
         interview_feed:{type:String,required:true},
         interview_marks:{type:Number,required:true}
     }],
+    avg_marks:{
+        type:Number,
+        required:true
+    },
 });
 
 

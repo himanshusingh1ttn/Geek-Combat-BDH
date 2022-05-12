@@ -422,16 +422,40 @@ const AddFeedForm=async(req,res)=>{
     try {
         const traineeId=req.body.id;
         const topic=req.body.topic
-        const marks=req.body.marks
+        const marks=parseInt(req.body.marks)
         const desc=req.body.desc
         const feedBack={interview_topic:topic,interview_feed:desc,interview_marks:marks}
-        const trainee=await User.findByIdAndUpdate({_id:traineeId},{$push:{feedBack:feedBack}})
+        await User.findByIdAndUpdate({_id:traineeId},{$push:{feedBack:feedBack}}); 5
+
+        
+        const tData=await User.findById({_id:traineeId});
+        debugger
+        let sum=marks;
+        let length=tData.feedBack.length
+        for(let i=0;i<length;i++){
+            console.log(tData.feedBack[i].interview_marks,sum);
+            sum+=parseInt(tData.feedBack[i].interview_marks);
+        }
+        // Math.round(sum);
+        console.log(sum,length)
+        var avg_marks1=sum/(tData.feedBack.length+1);
+        console.log(avg_marks1)
+        
+        // await User.findByIdAndUpdate({_id:traineeId},{$push:{avg_marks:avg_marks1}});
+        const findTrainee=await User.findByIdAndUpdate({_id:traineeId},{$set:{avg_marks:avg_marks1}})
+        // if(findTrainee){
+        //     findTrainee.avg_marks=avg_marks1
+            
+        // }
+        // await User.save();
         res.redirect('/admin/home');
 
     } catch (error) {
         console.log(error.message)
     }
 }
+
+
 
 
 
