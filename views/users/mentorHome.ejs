@@ -29,18 +29,19 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="/scheduledInterview">
+                <a class="nav-link" href="/admin/scheduledInterview">
                     <i class="fas fa-fw fa-clipboard-list"></i>
                     <span>Scheduled</span>
                 </a>
-                <a class="nav-link" href="#">
+           
+                <a class="nav-link" href="/admin/interview">
                     <i class="fas fa-fw fa-clipboard-list"></i>
                     <span>Schedule</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/findTrainee">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Find Trainee</span></a>
             </li>
@@ -52,7 +53,7 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="/AddVideo">
+                <a class="nav-link" href="/admin/add-video">
                     <i class="fas fa-fw fa-video"></i>
                     <span>Add Video</span></a>
             </li>
@@ -203,7 +204,7 @@
                                         if(videoArr.length===0){ 
                                             %>
                                                 <div class="mb-3">No Uploaded Videos</div>
-                                                <a href="/AddVideo"><span class="me-1">Upload Video</span><i class="fa fa-plus"></i></a>
+                                                <a href="/admin/add-video"><span class="me-1">Upload Video</span><i class="fa fa-plus"></i></a>
                                                 
                                             <% } 
                                         else{ 
