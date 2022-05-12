@@ -78,9 +78,11 @@ admin_route.post('/add-video',upload.single('video'),adminController.addVideo);
 
 admin_route.get('/scheduledInterview',auth.isLogin,adminController.loadscheduledInterview);
 
+admin_route.get('/addFeed',auth.isLogin,adminController.loadAddFeed);
+admin_route.post('/addFeed',auth.isLogin,adminController.AddFeedForm);
 
 admin_route.get('/allVideos',auth.isLogin,adminController.loadAllVideos);
-admin_route.post('/allVideos',auth.isLogin,adminController.findSearchVideo)
+admin_route.post('/allVideos',auth.isLogin,adminController.findSearchVideo);
 
 admin_route.get('/delete-user',adminController.deleteUser);
 

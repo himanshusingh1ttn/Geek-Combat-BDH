@@ -51,7 +51,12 @@ const userSchema = new mongoose.Schema({
     scheduledInterview:[{
         interviewe_id:{type:String,required:true},
         interview_date:{type:String,required:true}
-    }]
+    }],
+    feedBack:[{
+        interview_topic:{type:String,required:true},
+        interview_feed:{type:String,required:true},
+        interview_marks:{type:Number,required:true}
+    }],
 });
 
 

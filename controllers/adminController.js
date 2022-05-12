@@ -347,7 +347,7 @@ const loadscheduledInterview = async (req, res) => {
             for(let j=0;j<=userId.length-1;j++){
                      const interviewe=await User.find({_id:userId[j].interviewe_id})
                      console.log(interviewe)
-                    const sample={name:interviewe[0].name,email:interviewe[0].email,mobile:interviewe[0].mobile,status:0,date:user[i].scheduledInterview[j].interview_date}
+                    const sample={name:interviewe[0].name,email:interviewe[0].email,mobile:interviewe[0].mobile,status:0,date:user[i].scheduledInterview[j].interview_date,_id:interviewe[i]._id}
                     users.push(sample);
                 }
         }
@@ -406,10 +406,37 @@ const findSearchVideo=async(req,res)=>{
     }
 }
 
+const loadAddFeed=async(req,res)=>{
+    try {
+        const user=await User.findById({_id:req.query.id})
+        if(user){
+            console.log(user)
+            res.render('addFeed',{users:user});
+        }
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+const AddFeedForm=async(req,res)=>{
+    try {
+        const traineeId=req.body.id;
+        const topic=req.body.topic
+        const marks=req.body.marks
+        const desc=req.body.desc
+        const feedBack={interview_topic:topic,interview_feed:desc,interview_marks:marks}
+        const trainee=await User.findByIdAndUpdate({_id:traineeId},{$push:{feedBack:feedBack}})
+        res.redirect('/admin/home');
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
 
 
 
-module.exports = { loadLogin, verifyLogin, loadDashboard, logout, forgetLoad, forgetVerify, forgetPasswordLoad, resetPassword, admindashboard, newUserLoad, addUser, editUserLoad, updateUsers, deleteUser, loadInterview, loadaddVideo, loadscheduledInterview, addVideo, loadAllVideos,findSearchVideo,scheduleInterview }
+
+module.exports = { loadLogin, verifyLogin, loadDashboard, logout, forgetLoad, forgetVerify, forgetPasswordLoad, resetPassword, admindashboard, newUserLoad, addUser, editUserLoad, updateUsers, deleteUser, loadInterview, loadaddVideo, loadscheduledInterview, addVideo, loadAllVideos,findSearchVideo,scheduleInterview,loadAddFeed,AddFeedForm }
 
 
 

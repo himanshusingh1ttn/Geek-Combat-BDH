@@ -13,10 +13,12 @@
         <th>Trainee Email</th>
         <th>Traine Contact Number</th>
         <th>Date</th>
+        <th>Add FeedBack</th>
     </tr>
     <%
      if(users.length>0){
          for(let i = 0; i<users.length; i++){
+             
          %>
             <tr>
 
@@ -24,6 +26,7 @@
                 <td><%= users[i].email %></td>
                 <td><%= users[i].mobile %></td>
                 <td><%= users[i].date %></td>
+                <td><a href="/admin/addFeed?id=<%= users[i]._id %>">Add Feed</a></td>
             </tr>
 
 

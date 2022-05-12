@@ -1,0 +1,17 @@
+<%- include('../layouts/header.ejs')%>
+<h1>Add Interview FeedBack of <%= users.name%></h1>
+
+
+
+<form action="" method="POST">
+    <input type="text" name="topic" placeholder="Enter the topic of the interviews" required>
+    <br><br>
+    <input type="text" name="desc" placeholder="Enter detail Description about the interview"  required>
+    <br><br>
+    <input type="decimal" name="marks" placeholder="Enter the total marks" required>
+    <br><br>
+    <input type="hidden" name="id" value="<%= users._id%>">
+    <input type="submit" value="Submit">
+</form>
+<a href="/admin/">Go Dashboard</a>
+<% include('../layouts/footer.ejs')%>
