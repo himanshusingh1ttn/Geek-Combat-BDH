@@ -51,17 +51,3 @@
     e.preventDefault();
   });
 
-
-
-// //toggle password
-//   const togglePassword = document.getElementById('togglePassword');
-//   const password = document.querySelector('#exampleInputPassword');
- 
-//   togglePassword.addEventListener('click', function (e) {
-//     // toggle the type attribute
-//     const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-//     password.setAttribute('type', type);
-//     // toggle the eye slash icon
-//     this.classList.toggle('fas fa-fw fa-eye ');
-// });
-

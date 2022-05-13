@@ -60,11 +60,6 @@
 
             <hr class="sidebar-divider d-none d-md-block">
 
-            <!--     
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div> -->
-
         </ul>
 
         <div id="content-wrapper" class="d-flex flex-column">
@@ -191,20 +186,17 @@
                     <div class="row">
                         <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Uploaded Videos</h6>
                                 </div>
-                                <!-- Card Body -->
                                 <div class="card-body">
                                     <% 
                                         var videoArr = []; 
-                                        <!-- console.log(videoArr.length); -->
                                         if(videoArr.length===0){ 
                                             %>
                                                 <div class="mb-3">No Uploaded Videos</div>
-                                                <a href="/admin/add-video"><span class="me-1">Upload Video</span><i class="fa fa-plus"></i></a>
+                                                <a href="/admin/add-video"><span class="me-1">Upload Video  </span><i class="fa fa-plus"></i></a>
                                                 
                                             <% } 
                                         else{ 
