@@ -32,7 +32,7 @@ const sendVerifyMail = async (name, email, userId) => {
             from: config.emailUser,
             to: email,
             subject: 'for verification mail',
-            html: '<p>Hi' + name + ',please click here to <a href="http://127.0.0.1:3000/verify?id=' + userId + '"> Verify </a> your mail.</p>'
+            html: '<p>Hi ' + name + ',please click here to <a href="http://127.0.0.1:3000/verify?id=' + userId + '"> Verify </a> your mail.</p>'
         }
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
@@ -46,8 +46,6 @@ const sendVerifyMail = async (name, email, userId) => {
         console.log(error.message);
     }
 }
-
-
 
 
 const loadRegister = async (req, res) => {
@@ -217,7 +215,7 @@ const sendResetPasswordMail = async (name, email, token) => {
             from: config.emailUser,
             to: email,
             subject: 'For reset password',
-            html: '<p>Hi' + name + ',please click here to <a href="http://127.0.0.1:3000/forget-password?token=' + token + '">Reset</a> your password.</p>'
+            html: '<p>Hi ' + name + ',please click here to <a href="http://127.0.0.1:3000/forget-password?token=' + token + '">Reset</a> your password.</p>'
         }
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {

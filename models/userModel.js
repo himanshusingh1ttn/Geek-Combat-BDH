@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
     },
     is_Mentor:{
         type:Number,
-        required:true
+        // required:true
     },
     is_verified:{
         type:Number,
@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
     },
     yoj:{
         type:Number,
-        required:true
+        // required:true
     },
     token:{
         type:String,
@@ -59,7 +59,8 @@ const userSchema = new mongoose.Schema({
     }],
     avg_marks:{
         type:Number,
-        required:true
+        required:true,
+        default:0
     },
 });
 

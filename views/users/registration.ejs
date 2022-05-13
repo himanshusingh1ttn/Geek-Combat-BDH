@@ -1,7 +1,7 @@
 <%- include('../layouts/header.ejs')%>
-<h1>User registration  </h1>
+<!-- <h1>User registration  </h1> -->
 
-<form action = ""  method = "post" enctype="multipart/form-data">
+<!-- <form action = ""  method = "post" enctype="multipart/form-data">
     <input type = "text" name = "name" placeholder = "Enter name" required>
     <br>
     <br>
@@ -24,6 +24,62 @@
         <p style="color:green;"><%= message %></p>
         <%
     }
-%>
+%> -->
+
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <div class="row">
+                <div class="col-lg-6 d-none d-lg-block bg-register-image"></div>
+                <div class="col-lg-6">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Create an Admin Account!</h1>
+                        </div>
+                        <form class="user" action = ""  method = "post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input type="text" name = "name" class="form-control form-control-user" id="exampleFirstName"
+                                    placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name = "email" class="form-control form-control-user" id="exampleInputEmail"
+                                    placeholder="Email Address" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name = "mno" class="form-control form-control-user" id="exampleInputNumber"
+                                    placeholder="Mobile Number" required>
+                            </div>
+                            <div class="form-group position-relative">
+                                <input type="password" name = "password" class="form-control form-control-user"
+                                    id="exampleInputPassword" placeholder="Password" required>
+                                <i class="fas fa-fw fa-eye position-absolute" id="togglePassword" style="right: 1rem; top: 1rem; cursor:pointer"></i>
+                            </div>
+                            <input type="file" class="mb-3" id="exampleInputFile"
+                                    placeholder="Profile Photo" name = "image" required>
+                            <input type = "submit" value="Register" class="btn btn-primary btn-user btn-blockr" style="width: 100%;">
+                            <hr>
+                        </form>
+                        <div class="text-center">
+                            <a class="small" href="/admin/login">Already have an account? Login!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const togglePassword = document.getElementById('togglePassword');
+    const password = document.querySelector('#exampleInputPassword');
+   
+    togglePassword.addEventListener('click', function (e) {
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      this.classList.toggle('fa-eye-slash');
+  });
+  </script>
 
 <% include('../layouts/footer.ejs')%>

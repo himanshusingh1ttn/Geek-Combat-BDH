@@ -7,17 +7,14 @@
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <!-- <img src="/assests/images/logo.jpg" alt=""> -->
-                </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/mentorHome">
+                <div class="sidebar-brand-text mx-3">To The New</div>
             </a>
 
             <hr class="sidebar-divider my-0">
 
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/mentorHome">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -32,11 +29,6 @@
                 <a class="nav-link" href="/admin/scheduledInterview">
                     <i class="fas fa-fw fa-clipboard-list"></i>
                     <span>Scheduled</span>
-                </a>
-           
-                <a class="nav-link" href="/admin/interview">
-                    <i class="fas fa-fw fa-clipboard-list"></i>
-                    <span>Schedule</span>
                 </a>
             </li>
 
@@ -90,15 +82,6 @@
 
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -130,11 +113,6 @@
                                             <div class="mb-0 font-weight-bold text-gray-800 text-xs">Average Score: 90%
                                             </div>
                                         </div>
-                                        <div class="col-auto">
-                                            <img src="userImages/<%= user.image%>" alt="user-image"
-                                                class="img-profile rounded-circle"
-                                                style="width: 2.5rem; height: 2.5rem">
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -151,11 +129,6 @@
                                             <div class="mb-0 font-weight-bold text-gray-800 text-xs ">Average Score: 90%
                                             </div>
                                         </div>
-                                        <div class="col-auto">
-                                            <img src="userImages/<%= user.image%>" alt="user-image"
-                                                class="img-profile rounded-circle"
-                                                style="width: 2.5rem; height: 2.5rem">
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -171,11 +144,6 @@
                                             </div>
                                             <div class="text-xs mb-0 font-weight-bold text-gray-800">Average Score: 90%
                                             </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img src="userImages/<%= user.image%>" alt="user-image"
-                                                class="img-profile rounded-circle"
-                                                style="width: 2.5rem; height: 2.5rem">
                                         </div>
                                     </div>
                                 </div>

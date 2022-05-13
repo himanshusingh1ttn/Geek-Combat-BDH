@@ -1,15 +1,13 @@
 <%- include('../layouts/header.ejs')%>
-<!-- <h1>Admin Login</h1>
+<!-- <h1>Admin Login</h1>-->
 
-<%
+ <%
     if(typeof message !== 'undefined'){
-    %>
-    <h3><%= message %></h3>
-    <%
+        errorMessage = message;
+        console.log(errorMessage);
     }
-
-%>
-
+%> 
+<!--
 <form action="" method="POST">
     <input type="email" name="email" placeholder="Enter Email">
     <br><br>
@@ -53,10 +51,10 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="/admin/login">Admin Login</a>
+                                    <a class="small" href="/verification">Verify your Email ID</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="/verification">Verify</a>
+                                    <a class="small" href="/login">Mentor/Trainee Login</a>
                                 </div>
                             </div>
                         </div>
@@ -69,6 +67,17 @@
     </div>
 
 </div>
+
+<script>
+    const togglePassword = document.getElementById('togglePassword');
+    const password = document.querySelector('#exampleInputPassword');
+   
+    togglePassword.addEventListener('click', function (e) {
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      this.classList.toggle('fa-eye-slash');
+  });
+</script>
 
 
 <% include('../layouts/footer.ejs')%>
